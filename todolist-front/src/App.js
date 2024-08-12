@@ -5,6 +5,7 @@ import { Global } from "@emotion/react";
 import { reset } from "./styles/common";
 import DandP from "./pages/DandP/DandP";
 import MainLayout from "./components/MainLayout/MainLayout";
+import Note from "./pages/Note/Note";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/login" element={<></>} />
                     <Route path="/join" element={<></>} />
                     <Route path="/dp" element={<DandP />} />
+                    <Route path="/note" element={<Note />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </MainLayout>
