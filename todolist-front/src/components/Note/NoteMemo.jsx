@@ -2,9 +2,6 @@ import { useState } from "react";
 
 function NoteMemo(props) {
 
-    const emptyMemo = {
-        content: ""
-    }
 
     const [ memo, setMemo ] = useState({
         content: ""
@@ -18,8 +15,7 @@ function NoteMemo(props) {
     }
 
     const handleKeyDown = (e) => {
-        // if(e.keyCode === 13 && !!e.shiftKey) {
-        // }
+
         if(e.keyCode === 13 && !e.shiftKey) {
             e.preventDefault();
             handlesubmitClick();
@@ -34,7 +30,7 @@ function NoteMemo(props) {
 
         }
             
-        setMemo(emptyMemo)
+        
     }
 
     return (
