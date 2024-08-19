@@ -3,8 +3,8 @@ package com.study.todolist.dto.response.todo;
 import lombok.Builder;
 import lombok.Data;
 
-@Data
 @Builder
+@Data
 public class RespTodoDto {
     private int todoId;
     private int userId;

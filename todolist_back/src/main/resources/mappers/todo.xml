@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -20,6 +21,28 @@
             now()
         )
     </insert>
+    <update id="changeStatus">
+        update
+            todo_tb
+        set
+            status = if(status = 1, 2, 1)
+        where
+            todoId = #{todoId}
+    </update>
+    <update id="modifyTodoByTodoId">
+        update
+            todo_tb
+        set
+            title = #{title},
+            content = #{content},
+            important = #{important},
+            busy = #{busy},
+            status = #{status},
+            todoDateTime = #{todoDateTime},
+            updateDate = now()
+        where
+            todoId = #{todoId}
+    </update>
     <select id="findAll" resultType="com.study.todolist.entity.Todo">
         select
             todoId,
@@ -36,15 +59,13 @@
             todoDateTime
     </select>
     <select id="getTodoCounts" resultType="com.study.todolist.entity.TodoCounts">
-
         select
-            (SELECT
+            (select
                 count(*)
-            FROM
+            from
                 todo_tb
             where
                 status = 1) as `all`,
-
 
             (select
                 count(*)
@@ -71,12 +92,10 @@
                 and busy = 1) as `busy`,
 
             (select
-                count(*) as `complete`
+                count(*)
             from
                 todo_tb
             where
-                status = 2) as `complete`;
-
+                status = 2) as `complete`
     </select>
-
 </mapper>

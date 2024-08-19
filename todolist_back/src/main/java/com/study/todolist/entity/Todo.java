@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor //mybatis 라이브러리 때문에 사용
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Todo {
     private int todoId;
     private int userId;
@@ -32,7 +32,17 @@ public class Todo {
                 .important(important)
                 .busy(busy)
                 .status(status)
-                .todoDateTime(todoDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm")))
+                .todoDateTime(todoDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")))
                 .build();
     }
 }
+
+
+
+
+
+
+
+
+
+
